@@ -1,6 +1,7 @@
 package render
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"strings"
@@ -26,14 +27,14 @@ type TemplateData struct {
 	Secure          bool
 }
 
-func (c *Render) Page(w http.ResponseWriter, r *http.Request, view string, variables, data, interface{}) error {
+func (c *Render) Page(w http.ResponseWriter, r *http.Request, view string, variables, data interface{}) error {
 	switch strings.ToLower(c.Renderer) {
 	case "go":
-		return c.GoPage(w, r, view, variables, data)
+		return c.GoPage(w, r, view, data)
 	case "jet":
-		
+
 	}
-	
+
 	return nil
 }
 
